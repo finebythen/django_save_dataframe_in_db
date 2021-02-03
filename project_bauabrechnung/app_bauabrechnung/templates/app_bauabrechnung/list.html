@@ -1,0 +1,48 @@
+{% extends 'app_bauabrechnung/base.html' %}
+
+{% block title %}Overview{% endblock title %}
+
+{% block style %}
+    .button-list { margin: 1rem; }
+    .button-list a {
+        text-decoration: none;
+        color: #fff;
+    }
+    table { font-size: 0.8rem; }
+{% endblock style %}
+
+{% block content %}
+<div class="button-list">
+    <button class="btn btn-info btn-sm">
+        <a href="{% url 'Main' %}">Hauptseite</a>
+    </button>
+</div>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">first_name</th>
+                        <th scope="col">last_name</th>
+                        <th scope="col">age</th>
+                        <th scope="col">crm_id</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in qs %}
+                        <tr>
+                            <td>{{ item.first_name }}</td>
+                            <td>{{ item.last_name }}</td>
+                            <td>{{ item.age }}</td>
+                            <td>{{ item.crm_id }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block script %}{% endblock script %}
